@@ -1,11 +1,11 @@
-package network.beldex.beldexnet;
+package network.beldex.belnet;
 
 import java.nio.ByteBuffer;
 
 public class BelnetConfig
 {
   static {
-    System.loadLibrary("beldexnet-android");
+    System.loadLibrary("belnet-android");
   }
 
   private static native ByteBuffer Obtain(String dataDir);

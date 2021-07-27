@@ -1,4 +1,4 @@
-package network.beldex.beldexnet;
+package network.beldex.belnet;
 
 import java.lang.Thread;
 import java.nio.ByteBuffer;
@@ -12,7 +12,7 @@ import android.os.ParcelFileDescriptor;
 public class BelnetDaemon extends VpnService
 {
   static {
-    System.loadLibrary("beldexnet-android");
+    System.loadLibrary("belnet-android");
   }
 
   private static native ByteBuffer Obtain();
@@ -108,7 +108,7 @@ public class BelnetDaemon extends VpnService
 
       if (!config.Load())
       {
-        Log.e(LOG_TAG, "failed to load (or create) config file at: " + dataDir + "/beldexnet.ini");
+        Log.e(LOG_TAG, "failed to load (or create) config file at: " + dataDir + "/belnet.ini");
         return START_NOT_STICKY;
       }
 

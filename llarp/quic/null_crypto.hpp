@@ -9,7 +9,7 @@
 
 namespace llarp::quic
 {
-  // Class providing do-nothing stubs for quic crypto operations: everything over beldexnet is already
+  // Class providing do-nothing stubs for quic crypto operations: everything over belnet is already
   // encrypted so we just no-op QUIC's built in crypto operations.
   struct NullCrypto
   {
