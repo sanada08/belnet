@@ -9,7 +9,7 @@ import android.util.Log;
 import android.content.Intent;
 import android.os.ParcelFileDescriptor;
 
-public class LokinetDaemon extends VpnService
+public class BelnetDaemon extends VpnService
 {
   static {
     System.loadLibrary("beldexnet-android");
@@ -17,7 +17,7 @@ public class LokinetDaemon extends VpnService
 
   private static native ByteBuffer Obtain();
   private static native void Free(ByteBuffer buf);
-  public native boolean Configure(LokinetConfig config);
+  public native boolean Configure(BelnetConfig config);
   public native int Mainloop();
   public native boolean IsRunning();
   public native boolean Stop();
@@ -29,7 +29,7 @@ public class LokinetDaemon extends VpnService
   public native String DumpStatus();
 
 
-  public static final String LOG_TAG = "LokinetDaemon";
+  public static final String LOG_TAG = "BelnetDaemon";
 
   ByteBuffer impl = null;
   ParcelFileDescriptor iface;
@@ -77,10 +77,10 @@ public class LokinetDaemon extends VpnService
       }
 
       String dataDir = getFilesDir().toString();
-      LokinetConfig config;
+      BelnetConfig config;
       try
       {
-        config = new LokinetConfig(dataDir);
+        config = new BelnetConfig(dataDir);
       }
       catch(RuntimeException ex)
       {
@@ -129,7 +129,7 @@ public class LokinetDaemon extends VpnService
       // builder.addRoute("::", 0);
 
       builder.addDnsServer(upstreamDNS);
-      builder.setSession("Lokinet");
+      builder.setSession("Belnet");
       builder.setConfigureIntent(null);
 
       iface = builder.establish();

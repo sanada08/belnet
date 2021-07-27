@@ -2,7 +2,7 @@ package network.beldex.beldexnet;
 
 import java.nio.ByteBuffer;
 
-public class LokinetConfig
+public class BelnetConfig
 {
   static {
     System.loadLibrary("beldexnet-android");
@@ -22,7 +22,7 @@ public class LokinetConfig
   
   private final ByteBuffer impl;
 
-  public LokinetConfig(String dataDir)
+  public BelnetConfig(String dataDir)
   {
     impl = Obtain(dataDir);
     if(impl == null)

@@ -16,16 +16,16 @@ namespace llarp
   {
     using LMQ_ptr = std::shared_ptr<oxenmq::OxenMQ>;
 
-    /// The LokidRpcClient uses loki-mq to talk to make API requests to lokid.
-    struct LokidRpcClient : public std::enable_shared_from_this<LokidRpcClient>
+    /// The BeldexdRpcClient uses loki-mq to talk to make API requests to beldexd.
+    struct BeldexdRpcClient : public std::enable_shared_from_this<BeldexdRpcClient>
     {
-      explicit LokidRpcClient(LMQ_ptr lmq, std::weak_ptr<AbstractRouter> r);
+      explicit BeldexdRpcClient(LMQ_ptr lmq, std::weak_ptr<AbstractRouter> r);
 
-      /// Connect to lokid async
+      /// Connect to beldexd async
       void
       ConnectAsync(oxenmq::address url);
 
-      /// blocking request identity key from lokid
+      /// blocking request identity key from beldexd
       /// throws on failure
       SecretKey
       ObtainIdentityKey();
@@ -47,7 +47,7 @@ namespace llarp
       InformConnection(RouterID router, bool success);
 
      private:
-      /// called when we have connected to lokid via lokimq
+      /// called when we have connected to beldexd via lokimq
       void
       Connected();
 
@@ -75,7 +75,7 @@ namespace llarp
       void
       HandleGotMasterNodeList(std::string json);
 
-      // Handles request from lokid for peer stats on a specific peer
+      // Handles request from beldexd for peer stats on a specific peer
       void
       HandleGetPeerStats(oxenmq::Message& msg);
 
