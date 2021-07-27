@@ -1,0 +1,9 @@
+/* Allow belnet to set DNS settings */
+polkit.addRule(function(action, subject) {
+    if ((action.id == "org.freedesktop.resolve1.set-dns-servers" ||
+         action.id == "org.freedesktop.resolve1.set-domains") &&
+        subject.user == "_belnet") {
+        return polkit.Result.YES;
+    }
+});
+

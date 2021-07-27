@@ -1,0 +1,4 @@
+[Allow belnet to set DNS settings]
+Identity=unix-user:_belnet
+Action=org.freedesktop.resolve1.set-dns-servers;org.freedesktop.resolve1.set-domains
+ResultAny=yes

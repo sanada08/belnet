@@ -1,0 +1,38 @@
+#!/bin/sh
+
+PERMS_OWNER=root
+PERMS_GROUP=admin
+CHOWN=$PERMS_OWNER:$PERMS_GROUP
+
+# set up belnet data dir
+[ -e /var/lib/belnet/ ] || mkdir /var/lib/belnet 
+chown $CHOWN /var/lib/belnet
+chmod g+w /var/lib/belnet
+
+# mv files copied into $INSTALL_PREFIX/extra/ to their proper locations
+mv /opt/belnet/extra/belnet_macos_daemon_script.sh /var/lib/belnet
+chown $CHOWN /var/lib/belnet/belnet_macos_daemon_script.sh
+chmod 770 /var/lib/belnet/belnet_macos_daemon_script.sh
+
+mv /opt/belnet/extra/network.beldex.belnet.daemon.plist /Library/LaunchDaemons/
+chown $CHOWN /Library/LaunchDaemons/network.beldex.belnet.daemon.plist
+chmod 640 /Library/LaunchDaemons/network.beldex.belnet.daemon.plist
+
+mv /opt/belnet/extra/belnet-newsyslog.conf /etc/newsyslog.d/belnet.conf
+chown $CHOWN /etc/newsyslog.d/belnet.conf
+chmod 640 /etc/newsyslog.d/belnet.conf
+
+# clean up by removing 'extra/' (so long as it's empty)
+rmdir /opt/belnet/extra/
+
+# bootstrap
+/opt/belnet/bin/belnet-bootstrap mainnet /var/lib/belnet/bootstrap.signed
+chown $CHOWN /var/lib/belnet/bootstrap.signed
+
+# generate configs
+/opt/belnet/bin/belnet -g /var/lib/belnet/belnet.ini
+chown $CHOWN /var/lib/belnet/belnet.ini
+
+# register with launchd and start
+launchctl load /Library/LaunchDaemons/network.beldex.belnet.daemon.plist
+launchctl start network.beldex.belnet.daemon

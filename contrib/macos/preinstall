@@ -1,0 +1,46 @@
+#!/bin/sh
+
+
+# this is for dns tomfoolery
+scutil_query()
+{
+  key=$1
+
+  scutil<<EOT
+  open
+  get $key
+  d.show
+  close
+EOT
+}
+
+# get guid for service
+SERVICE_GUID=`scutil_query State:/Network/Global/IPv4 \
+        | grep "PrimaryService" \
+        | awk '{print $3}'`
+
+# get name of network service
+SERVICE_NAME=`scutil_query Setup:/Network/Service/$SERVICE_GUID \
+        | grep "UserDefinedName" \
+        | awk -F': ' '{print $2}'`
+
+# tell dns to be "empty" so that it's reset
+networksetup -setdnsservers "$SERVICE_NAME" empty
+# suspend existing belnet if it's there
+[ -e /var/lib/belnet ] && touch /var/lib/belnet/suspend-launchd-service
+# kill it
+killall belnet || true
+# wait a sec
+sleep 1
+# make sure it's fucking dead
+killall -9 belnet || true
+
+# check for prexisting belnet and kill it if it's there
+[ -e /Library/LaunchDaemons/network.beldex.belnet.daemon.plist ] && (
+    launchctl stop network.beldex.belnet.daemon ;
+    launchctl unload /Library/LaunchDaemons/network.beldex.belnet.daemon.plist ;
+    rm -rf /Library/LaunchDaemons/network.beldex.belnet.daemon.plist
+)
+
+# clear out the install dir beforehand
+rm -rf /opt/belnet
