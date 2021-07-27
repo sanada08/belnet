@@ -1,5 +1,5 @@
 if(NOT GUI_ZIP_URL)
-  set(GUI_ZIP_URL "https://oxen.rocks/oxen-io/beldex-network-control-panel/belnet-gui-windows-32bit-v0.3.8.zip")
+  set(GUI_ZIP_URL "https://oxen.rocks/beldex-coin/beldex-network-control-panel/belnet-gui-windows-32bit-v0.3.8.zip")
   set(GUI_ZIP_HASH_OPTS EXPECTED_HASH SHA256=60c2b738cf997e5684f307e5222498fd09143d495a932924105a49bf59ded8bb)
 endif()
 

@@ -10,11 +10,11 @@ Belnet - реализация LLARP (протокол анонимной мар�
 
 Почитать документацию о том, как начать работу [здесь](https://beldex-coin.github.io/beldex-docs/Belnet/BelnetOverview/)
 
-[![Build Status](https://drone.belnet.dev/api/badges/oxen-io/belnet/status.svg?ref=refs/heads/master)](https://drone.belnet.dev/oxen-io/belnet)
+[![Build Status](https://drone.belnet.dev/api/badges/beldex-coin/belnet/status.svg?ref=refs/heads/master)](https://drone.belnet.dev/beldex-coin/belnet)
 
 ## Использование
 
-О том как начать работу см. [Документацию](https://oxen-io.github.io/beldex-docs/Belnet/BelnetOverview/)
+О том как начать работу см. [Документацию](https://beldex-coin.github.io/beldex-docs/Belnet/BelnetOverview/)
 
 Также прочтите [Public Testing Guide](https://beldexdocs.com/Belnet/Guides/PublicTestingGuide/#1-belnet-installation) для установки и другой полезной информации.
 
@@ -113,7 +113,7 @@ Belnet - реализация LLARP (протокол анонимной мар�
 
 сборка:
 
-    $ git clone --recursive https://github.com/oxen-io/belnet
+    $ git clone --recursive https://github.com/beldex-coin/belnet
     $ cd belnet
     $ mkdir build-windows
     $ cd build-windows
@@ -133,7 +133,7 @@ Belnet - реализация LLARP (протокол анонимной мар�
     $ sudo pkg install build-essential gcc8 wget tuntap cmake (optional: ninja ccache - from omnios extra) (OmniOS CE)
     $ sudo pkg install base-developer-utilities developer-gnu developer-studio-utilities gcc-7 wget cmake (Oracle Solaris, see note)
     $ sudo pkg install build-essential wget gcc-8 documentation/tuntap header-tun tun (optional: ninja ccache) (all other SunOS)
-    $ git clone --recursive https://github.com/oxen-io/belnet
+    $ git clone --recursive https://github.com/beldex-coin/belnet
     $ cd belnet
     $ mkdir build
     $ cd build
