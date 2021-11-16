@@ -8,11 +8,11 @@ You can learn more about the high level design of LLARP [here](docs/high-level.t
 
 And you can read the LLARP protocol specification [here](docs/proto_v0.txt)
 
-You can view documentation on how to get started [here](https://docs.oxen.io/products-built-on-oxen/belnet) .
+You can view documentation on how to get started [here](https://docs.beldex.io/products-built-on-beldex/belnet) .
 
 A simple demo application that is belnet "aware" can be found [here](https://github.com/majestrate/belnet-aware-demos)
 
-[![Build Status](https://ci.oxen.rocks/api/badges/beldex-coin/belnet/status.svg?ref=refs/heads/dev)](https://ci.oxen.rocks/beldex-coin/belnet)
+[![Build Status](https://ci.beldex.rocks/api/badges/beldex-coin/belnet/status.svg?ref=refs/heads/dev)](https://ci.beldex.rocks/beldex-coin/belnet)
 
 ## Building
 
@@ -30,12 +30,12 @@ Build requirements:
 
 ### Linux
 
-You do not have to build from source if you are on debian or ubuntu as we have apt repositories with pre-built belnet packages on `deb.oxen.io`.
+You do not have to build from source if you are on debian or ubuntu as we have apt repositories with pre-built belnet packages on `deb.beldex.io`.
 
 You can install these using:
 
-    $ sudo curl -so /etc/apt/trusted.gpg.d/oxen.gpg https://deb.oxen.io/pub.gpg
-    $ echo "deb https://deb.oxen.io $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/oxen.list
+    $ sudo curl -so /etc/apt/trusted.gpg.d/beldex.gpg https://deb.beldex.io/pub.gpg
+    $ echo "deb https://deb.beldex.io $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/beldex.list
     $ sudo apt update
     $ sudo apt install belnet
 
