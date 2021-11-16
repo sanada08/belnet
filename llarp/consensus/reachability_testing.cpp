@@ -62,7 +62,7 @@ namespace llarp::consensus
   void
   reachability_testing::check_incoming_tests(const time_point_t& now)
   {
-    check_incoming_tests_impl("beldexnet", now, startup, last);
+    check_incoming_tests_impl("belnet", now, startup, last);
   }
 
   void
