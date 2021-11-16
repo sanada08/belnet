@@ -30,7 +30,7 @@ namespace llarp
       SecretKey
       ObtainIdentityKey();
 
-      /// get what the current block height is according to oxend
+      /// get what the current block height is according to Beldexd
       uint64_t
       BlockHeight() const
       {
