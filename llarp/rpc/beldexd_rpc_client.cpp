@@ -149,7 +149,7 @@ namespace llarp
         // send a ping
         nlohmann::json payload = {{"version", {VERSION[0], VERSION[1], VERSION[2]}}};
         self->Request(
-            "admin.beldexnet_ping",
+            "admin.belnet_ping",
             [](bool success, std::vector<std::string> data) {
               (void)data;
               LogDebug("Received response for ping. Successful: ", success);
@@ -256,13 +256,13 @@ namespace llarp
           if (auto itr = m_KeyMap.find(router); itr != m_KeyMap.end())
           {
             const nlohmann::json request = {
-                {"passed", success}, {"pubkey", itr->second.ToHex()}, {"type", "beldexnet"}};
+                {"passed", success}, {"pubkey", itr->second.ToHex()}, {"type", "belnet"}};
             Request(
                 "admin.report_peer_status",
                 [self = shared_from_this()](bool success, std::vector<std::string>) {
                   if (not success)
                   {
-                    LogError("Failed to report connection status to oxend");
+                    LogError("Failed to report connection status to Beldexd");
                     return;
                   }
                   LogDebug("reported connection status to core");
