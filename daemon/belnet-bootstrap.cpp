@@ -34,10 +34,10 @@ int
 main(int argc, char* argv[])
 {
   const std::unordered_map<std::string, std::string> bootstrap_urls = {
-      {"mainnet", "https://seed.belnet.org/belnet.signed"},
-      {"belnet", "https://seed.belnet.org/belnet.signed"},
-      {"testnet", "https://seed.belnet.org/testnet.signed"},
-      {"gamma", "https://seed.belnet.org/testnet.signed"}};
+      {"mainnet", "https://deb.beldex.io/Beldex-projects/Belnet/bootstrap-files/belnet.signed"},
+      {"belnet", "https://deb.beldex.io/Beldex-projects/Belnet/bootstrap-files/belnet.signed"},
+      {"testnet", "https://deb.beldex.io/Beldex-projects/Belnet/bootstrap-files/testnet.signed"},
+      {"gamma", "https://deb.beldex.io/Beldex-projects/Belnet/bootstrap-files/testnet.signed"}};
 
   std::string bootstrap_url = bootstrap_urls.at("belnet");
   fs::path outputfile{llarp::GetDefaultBootstrap()};
