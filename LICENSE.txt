@@ -7,6 +7,7 @@ the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
 Copyright (c) 2018-2020 The Beldex Project
+Copyright (c) 2018-2020 The Oxen Project
 Copyright (c) 2018-2020 Jeff Becker
 Windows NT port and portions Copyright (c) 2018-2020 Rick V.
 
